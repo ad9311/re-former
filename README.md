@@ -37,7 +37,7 @@ Now access the project using the following link http://127.0.0.1:3000</br>
 
 You will be presented with a form and where you can create a new user. Please keep in mind that the username and the email must be unique and the username and password must have between 6 to 16 characters.</br>
 
-To edit a user type in the address bar /[user_id]/edit. It should look something like this http://127.0.0.1:3000/users/4/edit where 4 is the id of the user you wish to edit.</br>
+To edit a user just click the link with user's username and edit it. Keep in mind that the same restrictions for creating a new one will also apply.
 
 To the id of all users you can use Rails console, like this:
 
