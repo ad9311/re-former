@@ -52,9 +52,18 @@
     <%= form.label :password %></br>
     <%= form.password_field :password %>
   </div>
+  </br>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
-
-<%= link_to 'Back', users_path %>
+</br>
+<tbody>
+  <h3>Edit a user:</h3>
+  <% @user_all.each do |user| %>
+    <tr>
+      <td><%= link_to user.username, edit_user_path(user) %></td></br>
+    </tr>
+  <% end %>
+</tbody>
+</br></br>

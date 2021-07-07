@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: %i[ show edit update destroy ]
-
   def new
     @user = User.new
+    @user_all = User.all
   end
 
   def create
