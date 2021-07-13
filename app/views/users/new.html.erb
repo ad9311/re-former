@@ -1,0 +1,69 @@
+<h1>New User</h1>
+
+<% 
+=begin%>
+ <form action="/users" method="POST" accept-charset="UTF-8" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="username">username:</label>
+  <input id="username" name="user[username]" type="text"/></br>
+  <label for="email">Email:</label>
+  <input id="email" name="user[emai]" type="text"/></br>
+  <label for="password">Pasword:</label>
+  <input id="password" name="user[password]" type="text"/></br>
+  <input name="commit" type="submit" value="Sign Up" data-disable-with="Sign Up" />
+</form> 
+<%
+=end%>
+
+<%
+=begin%>
+ <%= form_tag(users_path, method: "post") do %>
+  <%= label_tag(:username, "Username:") %>  
+  <%= text_field_tag(:ursername) %><br>
+  <%= label_tag(:email, "Email:") %>  
+  <%= email_field(:email, "") %><br>
+  <%= label_tag(:password, "Password:") %>  
+  <%= password_field_tag(:password) %><br>
+  <%= submit_tag("Sign Up") %>
+<% end %> 
+<%
+=end%>
+
+<%= form_with(model: @user) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :username %></br>
+    <%= form.text_field :username, placeholder: "John Doe" %>
+  </div>
+  <div class="field">
+    <%= form.label :email %></br>
+    <%= form.email_field :email, placeholder: "john_doe@email.com"%>
+  </div>
+  <div class="field">
+    <%= form.label :password %></br>
+    <%= form.password_field :password %>
+  </div>
+  </br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</br>
+<tbody>
+  <h3>Edit a user:</h3>
+  <% @user_all.each do |user| %>
+    <tr>
+      <td><%= link_to user.username, edit_user_path(user) %></td></br>
+    </tr>
+  <% end %>
+</tbody>
+</br></br>

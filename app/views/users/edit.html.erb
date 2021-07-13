@@ -1,0 +1,29 @@
+<h1>Edit User</h1>
+<%= form_for @user do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> found:</h2>
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :username %></br>
+    <%= form.text_field :username, placeholder: "John Doe" %>
+  </div>
+  <div class="field">
+    <%= form.label :email %></br>
+    <%= form.email_field :email, placeholder: "john_doe@email.com"%>
+  </div>
+  <div class="field">
+    <%= form.label :password %></br>
+    <%= form.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', users_path %>
